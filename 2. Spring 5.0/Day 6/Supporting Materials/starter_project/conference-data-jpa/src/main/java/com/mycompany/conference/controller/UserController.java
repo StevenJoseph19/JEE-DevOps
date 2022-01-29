@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.conference.model.User;
-import com.mycompany.conference.service.UserService;
+//import com.mycompany.conference.service.UserService;
 
 @RestController
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private UserService userService;
 
     @GetMapping("/user")
     public User getUser(@RequestParam(value = "firstname") String firstname,

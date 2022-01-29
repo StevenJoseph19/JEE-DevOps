@@ -1,21 +1,25 @@
 package com.mycompany.conference.model;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "CONF_USERS")
+//import javax.persistence.*;
+//
+//@Entity
+//@Table(name = "CONF_USERS")
 public class User {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private Long id;
-    @Column(name = "FIRST_NAME")
+//    @Column(name = "FIRST_NAME")
     private String firstname;
-    @Column(name = "LAST_NAME")
+//    @Column(name = "LAST_NAME")
     private String lastname;
     private int age;
 
-    public Long getId() {
+    public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getId() {
         return id;
     }
 
