@@ -2,22 +2,26 @@ pipeline {
     agent any
 
     // tools {
-    //     // Install the Maven version configured as "M3" and add it to the path.
-    //     maven "M3"
+                // Install the Maven version configured as "M3" and add it to the path.
+                // maven "M3"
+                // maven "MAVEN_HOME"
+                // jdk   "JAVA_HOME"
     // }
 
-    stages 
-        stage('Build') {
-            steps {
+    stages {
+        stage('Checkout'){
+              steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/StevenJoseph19/jgsu-spring-petclinic.git'
-
-                // Run Maven on a Unix agent.
-                // sh "mvn -Dmaven.test.failure.ignore=true clean package"
+              }
+            }
+        stage('Build') {
+            steps {
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
-                  bat "mvn clean package"
+                  bat 'mvn clean package'
+                //   bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {
@@ -27,7 +31,7 @@ pipeline {
                   always {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
-                }
+                  }
             }
         }
     }
